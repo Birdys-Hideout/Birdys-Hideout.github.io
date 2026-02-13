@@ -1,0 +1,27 @@
+- title: Mein Blog
+  url: /blog/
+  icon: 📝
+  style: primary
+
+- title: Instagram
+  url: https://www.instagram.com/{{ site.instagram_username }}/
+  icon: 📱
+  style: instagram
+
+- title: Aktuelle Buchempfehlungen
+  url: https://amzn.to/xyz
+  icon: 📚
+  badge: Affiliate
+
+- title: Lieblingsrezepte
+  url: /rezepte/
+  icon: 🍳
+
+- title: Newsletter abonnieren
+  url: https://newsletter.example.com
+  icon: 📬
+  style: highlight
+
+- title: Kontakt
+  url: mailto:{{ site.email }}
+  icon: ✉️

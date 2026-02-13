@@ -1,6 +1,5 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
-layout: home
+layout: linktree
+title: Links
+bio: 𝐀𝐧𝐢𝐦𝐞 ♡ 𝐌𝐚𝐧𝐠𝐚 ♡ 𝐅𝐮𝐣𝐨𝐬𝐡𝐢 ♡ 𝐋𝐞𝐯𝐞𝐥 𝟑𝟏 ♡ 𝐇𝐚𝐦𝐛𝐮𝐫𝐠 ♡
 ---

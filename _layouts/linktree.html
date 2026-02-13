@@ -1,0 +1,58 @@
+---
+layout: default
+---
+
+<div class="linktree-wrapper">
+  <div class="linktree-container">
+
+    <!-- Profile Section -->
+    <div class="profile">
+      <div class="profile-pic-wrapper">
+        <img src="{{ '/assets/images/profile.jpg' | relative_url }}"
+             alt="{{ site.title }}"
+             class="profile-pic">
+      </div>
+      <h1 class="profile-name">@{{ site.instagram_username }}</h1>
+      <p class="profile-bio">{{ page.bio | default: site.description }}</p>
+    </div>
+
+    <!-- Links Section -->
+    <div class="links">
+      {% for link in site.data.links %}
+      <a href="{{ link.url }}"
+         class="link-button {% if link.style %}link-{{ link.style }}{% endif %}"
+         {% if link.url contains 'http' %}target="_blank" rel="noopener noreferrer"{% endif %}>
+
+      {% if link.icon %}
+      <span class="link-icon">{{ link.icon }}</span>
+      {% endif %}
+
+      <span class="link-text">{{ link.title }}</span>
+
+      {% if link.badge %}
+      <span class="link-badge">{{ link.badge }}</span>
+      {% endif %}
+
+      {% if link.url contains 'http' %}
+      <span class="link-external">↗</span>
+      {% endif %}
+      </a>
+      {% endfor %}
+    </div>
+
+    {{ content }}
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="{{ '/impressum/' | relative_url }}">Impressum</a>
+        <span class="separator">•</span>
+        <a href="{{ '/datenschutz/' | relative_url }}">Datenschutz</a>
+      </div>
+      <p class="footer-copyright">
+        © {{ 'now' | date: "%Y" }} {{ site.title }}
+      </p>
+    </footer>
+
+  </div>
+</div>
