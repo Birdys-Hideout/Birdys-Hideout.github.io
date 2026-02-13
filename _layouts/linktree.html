@@ -2,6 +2,37 @@
 layout: default
 ---
 
+<!-- Automatische Saison-Berechnung -->
+{% assign current_month = 'now' | date: "%m" | plus: 0 %}
+{% if current_month >= 3 and current_month <= 5 %}
+{% assign season = "spring" %}
+{% elsif current_month >= 6 and current_month <= 8 %}
+{% assign season = "summer" %}
+{% elsif current_month >= 9 and current_month <= 11 %}
+{% assign season = "autumn" %}
+{% else %}
+{% assign season = "winter" %}
+{% endif %}
+
+<!-- Seasonal Animation Container -->
+<div class="seasonal-container season-{{ season }}">
+  <div class="seasonal-element"></div>
+  <div class="seasonal-element"></div>
+  <div class="seasonal-element"></div>
+  <div class="seasonal-element"></div>
+  <div class="seasonal-element"></div>
+  <div class="seasonal-element"></div>
+  <div class="seasonal-element"></div>
+  <div class="seasonal-element"></div>
+  <div class="seasonal-element"></div>
+  <div class="seasonal-element"></div>
+  <div class="seasonal-element"></div>
+  <div class="seasonal-element"></div>
+  <div class="seasonal-element"></div>
+  <div class="seasonal-element"></div>
+  <div class="seasonal-element"></div>
+</div>
+
 <div class="linktree-wrapper">
   <div class="linktree-container">
 

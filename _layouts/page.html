@@ -1,0 +1,156 @@
+---
+layout: default
+---
+
+<div class="page-container">
+    <div class="page-content">
+        <h1 class="page-title">{{ page.title }}</h1>
+
+        <article class="content">
+            {{ content }}
+        </article>
+
+        <div class="page-footer">
+            <a href="/" class="back-link">← Zurück zur Startseite</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .page-container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 20px;
+        background: var(--bg-main);
+    }
+
+    .page-content {
+        max-width: 800px;
+        width: 100%;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 48px;
+        box-shadow: var(--shadow-md);
+        animation: fadeIn 0.6s ease-out;
+    }
+
+    .page-title {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 32px;
+        color: var(--text-primary);
+        border-bottom: 3px solid var(--primary);
+        padding-bottom: 16px;
+    }
+
+    .content {
+        line-height: 1.8;
+        color: var(--text-primary);
+    }
+
+    .content h2 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-top: 40px;
+        margin-bottom: 16px;
+        color: var(--text-primary);
+    }
+
+    .content h3 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: 32px;
+        margin-bottom: 12px;
+        color: var(--text-primary);
+    }
+
+    .content p {
+        margin-bottom: 16px;
+        line-height: 1.8;
+    }
+
+    .content ul, .content ol {
+        margin-bottom: 16px;
+        padding-left: 32px;
+    }
+
+    .content li {
+        margin-bottom: 8px;
+    }
+
+    .content a {
+        color: var(--primary);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: var(--transition);
+    }
+
+    .content a:hover {
+        border-bottom-color: var(--primary);
+    }
+
+    .content strong {
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+
+    .content hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 40px 0;
+    }
+
+    .content code {
+        background: var(--bg-hover);
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.9em;
+        font-family: 'Courier New', monospace;
+    }
+
+    .page-footer {
+        margin-top: 48px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+    }
+
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+    }
+
+    .back-link:hover {
+        color: var(--primary);
+        transform: translateX(-4px);
+    }
+
+    @media (max-width: 600px) {
+        .page-container {
+            padding: 40px 16px;
+        }
+
+        .page-content {
+            padding: 32px 24px;
+        }
+
+        .page-title {
+            font-size: 28px;
+        }
+
+        .content h2 {
+            font-size: 20px;
+        }
+
+        .content h3 {
+            font-size: 18px;
+        }
+    }
+</style>

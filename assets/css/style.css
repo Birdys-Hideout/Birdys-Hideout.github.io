@@ -1,6 +1,16 @@
-/* ============================================
-   CSS Variables & Theme
-   ============================================ */
+---
+---
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/assets/fonts/Inter-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-display: swap;
+}
+
+    /* ============================================
+       CSS Variables & Theme
+       ============================================ */
 :root {
     /* Colors */
     --primary: #e1306c;
@@ -32,6 +42,12 @@
 
     /* Animations */
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Seasonal Colors */
+    --season-spring: #ffb7c5;
+    --season-summer: #ffd700;
+    --season-autumn: #ff6b35;
+    --season-winter: #b8d8ff;
 }
 
 /* Dark Mode */
@@ -45,6 +61,11 @@
         --border: #262626;
         --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
         --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+
+        --season-spring: #ff85a1;
+        --season-summer: #ffed4e;
+        --season-autumn: #ff8c5a;
+        --season-winter: #d4e8ff;
     }
 }
 
@@ -64,6 +85,312 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   Seasonal Animations Container
+   ============================================ */
+.seasonal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.seasonal-element {
+    position: absolute;
+    top: -10%;
+    opacity: 0.8;
+    will-change: transform, opacity;
+    animation: fall linear infinite;
+}
+
+/* ============================================
+   Spring: Cherry Blossoms (März-Mai)
+   ============================================ */
+.season-spring .seasonal-element {
+    font-size: 20px;
+    color: var(--season-spring);
+    text-shadow: 0 0 5px rgba(255, 183, 197, 0.5);
+}
+
+.season-spring .seasonal-element::before {
+    content: '🌸';
+}
+
+/* ============================================
+   Summer: Butterflies (Juni-August)
+   ============================================ */
+.season-summer .seasonal-element {
+    font-size: 22px;
+    color: var(--season-summer);
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+.season-summer .seasonal-element::before {
+    content: '🦋';
+}
+
+.season-summer .seasonal-element:nth-child(3n)::before {
+    content: '🌺';
+}
+
+/* ============================================
+   Autumn: Falling Leaves (September-November)
+   ============================================ */
+.season-autumn .seasonal-element {
+    font-size: 24px;
+    color: var(--season-autumn);
+    text-shadow: 0 0 6px rgba(255, 107, 53, 0.5);
+}
+
+.season-autumn .seasonal-element::before {
+    content: '🍂';
+}
+
+.season-autumn .seasonal-element:nth-child(2n) ::before {
+    content: '🍁';
+}
+
+/* ============================================
+   Winter: Snowflakes (Dezember-Februar)
+   ============================================ */
+.season-winter .seasonal-element {
+    font-size: 18px;
+    color: var(--season-winter);
+    text-shadow: 0 0 10px rgba(184, 216, 255, 0.6);
+}
+
+.season-winter .seasonal-element::before {
+    content: '❄️';
+}
+
+.season-winter .seasonal-element:nth-child(3n)::before {
+    content: '⛄';
+}
+
+/* ============================================
+   Fall Animation
+   ============================================ */
+@keyframes fall {
+    0% {
+        top: -10%;
+        opacity: 0.8;
+        transform: translateX(0) rotate(0deg);
+    }
+
+    25% {
+        opacity: 1;
+        transform: translateX(15px) rotate(90deg);
+    }
+
+    50% {
+        transform: translateX(-15px) rotate(180deg);
+    }
+
+    75% {
+        transform: translateX(15px) rotate(270deg);
+    }
+
+    100% {
+        top: 110%;
+        opacity: 0.2;
+        transform: translateX(0) rotate(360deg);
+    }
+}
+
+/* Winter: Langsamere, sanftere Bewegung */
+.season-winter .seasonal-element {
+    animation-name: fallSnow;
+}
+
+@keyframes fallSnow {
+    0% {
+        top: -10%;
+        opacity: 0.9;
+        transform: translateX(0) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(20px) rotate(180deg);
+    }
+
+    100% {
+        top: 110%;
+        opacity: 0.3;
+        transform: translateX(-20px) rotate(360deg);
+    }
+}
+
+/* Summer: Flatterndere Bewegung */
+.season-summer .seasonal-element {
+    animation-name: flutter;
+}
+
+@keyframes flutter {
+    0% {
+        top: -10%;
+        opacity: 0.7;
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+
+    10% {
+        transform: translateX(10px) translateY(5px) rotate(20deg);
+    }
+
+    20% {
+        transform: translateX(-5px) translateY(10px) rotate(-10deg);
+    }
+
+    30% {
+        transform: translateX(15px) translateY(15px) rotate(30deg);
+    }
+
+    40% {
+        transform: translateX(-10px) translateY(20px) rotate(-20deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(20px) translateY(25px) rotate(40deg);
+    }
+
+    60% {
+        transform: translateX(-15px) translateY(30px) rotate(-30deg);
+    }
+
+    70% {
+        transform: translateX(10px) translateY(35px) rotate(20deg);
+    }
+
+    80% {
+        transform: translateX(-5px) translateY(40px) rotate(-10deg);
+    }
+
+    90% {
+        opacity: 0.7;
+        transform: translateX(15px) translateY(45px) rotate(30deg);
+    }
+
+    100% {
+        top: 110%;
+        opacity: 0.3;
+        transform: translateX(0) translateY(50px) rotate(0deg);
+    }
+}
+
+/* ============================================
+   Positioning & Timing (15 Elements)
+   ============================================ */
+.seasonal-element:nth-child(1) {
+    left: 5%;
+    animation-duration: 12s;
+    animation-delay: 0s;
+    font-size: 18px;
+}
+
+.seasonal-element:nth-child(2) {
+    left: 15%;
+    animation-duration: 15s;
+    animation-delay: 2s;
+    font-size: 22px;
+}
+
+.seasonal-element:nth-child(3) {
+    left: 25%;
+    animation-duration: 10s;
+    animation-delay: 4s;
+    font-size: 16px;
+}
+
+.seasonal-element:nth-child(4) {
+    left: 35%;
+    animation-duration: 14s;
+    animation-delay: 1s;
+    font-size: 20px;
+}
+
+.seasonal-element:nth-child(5) {
+    left: 45%;
+    animation-duration: 11s;
+    animation-delay: 3s;
+    font-size: 19px;
+}
+
+.seasonal-element:nth-child(6) {
+    left: 55%;
+    animation-duration: 13s;
+    animation-delay: 5s;
+    font-size: 21px;
+}
+
+.seasonal-element:nth-child(7) {
+    left: 65%;
+    animation-duration: 16s;
+    animation-delay: 2.5s;
+    font-size: 17px;
+}
+
+.seasonal-element:nth-child(8) {
+    left: 75%;
+    animation-duration: 12s;
+    animation-delay: 4.5s;
+    font-size: 23px;
+}
+
+.seasonal-element:nth-child(9) {
+    left: 85%;
+    animation-duration: 14s;
+    animation-delay: 1.5s;
+    font-size: 18px;
+}
+
+.seasonal-element:nth-child(10) {
+    left: 10%;
+    animation-duration: 13s;
+    animation-delay: 6s;
+    font-size: 20px;
+}
+
+.seasonal-element:nth-child(11) {
+    left: 20%;
+    animation-duration: 11s;
+    animation-delay: 3.5s;
+    font-size: 19px;
+}
+
+.seasonal-element:nth-child(12) {
+    left: 40%;
+    animation-duration: 15s;
+    animation-delay: 2.8s;
+    font-size: 21px;
+}
+
+.seasonal-element:nth-child(13) {
+    left: 60%;
+    animation-duration: 12s;
+    animation-delay: 5.5s;
+    font-size: 17px;
+}
+
+.seasonal-element:nth-child(14) {
+    left: 80%;
+    animation-duration: 14s;
+    animation-delay: 1.8s;
+    font-size: 22px;
+}
+
+.seasonal-element:nth-child(15) {
+    left: 95%;
+    animation-duration: 13s;
+    animation-delay: 4.2s;
+    font-size: 18px;
 }
 
 /* ============================================
@@ -75,6 +402,8 @@ body {
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
+    position: relative;
+    z-index: 2;
 }
 
 .linktree-container {
@@ -328,6 +657,11 @@ body {
    Responsive Design
    ============================================ */
 @media (max-width: 600px) {
+    /* Mobile: Weniger saisonale Elemente */
+    .seasonal-element:nth-child(n+8) {
+        display: none;
+    }
+
     .linktree-wrapper {
         padding: 30px 16px;
     }
@@ -370,6 +704,10 @@ body {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
     }
+
+    .seasonal-element {
+        display: none !important;
+    }
 }
 
 .link-button:focus-visible {
@@ -381,6 +719,10 @@ body {
    Print Styles
    ============================================ */
 @media print {
+    .seasonal-container {
+        display: none;
+    }
+
     .linktree-wrapper {
         min-height: auto;
     }

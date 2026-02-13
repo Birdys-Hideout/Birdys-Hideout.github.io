@@ -8,7 +8,6 @@ url: "https://birdys-hideout.de" # the base hostname & protocol for your site, e
 instagram_username: birdys_hideout
 
 # Build Settings
-theme: minima
 markdown: kramdown
 plugins:
   - jekyll-feed
